@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QVariant>
 
+class QTimer;
+
 class StateMachine : public QObject
 {
     Q_OBJECT
@@ -32,18 +34,33 @@ public:
     {
         START,
         PAUSE,
-        STOP
+        STOP,
+        TICK
     };
     QString signalString(SignalEnum signal);
 
 signals:
 
-public slots:
+    void timerValue(int value);
+
+private slots:
+
+    void play();
+    void pause();
+    void stop();
+
+    //Internal
+    void tick();
 
 private:
 
+    QTimer *timerSecTick_;
+
+    //State variables
+    int time_;
+
     //State handling routines
-    StateEnum m_state;
+    StateEnum state_;
 
     void handleInput(SignalEnum, QVariant param = QVariant());
     void handleState_STOPPED(SignalEnum signal, QVariant param);

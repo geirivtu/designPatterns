@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class StateMachine;
+
 namespace Ui {
 class MainWindow;
 }
@@ -15,8 +17,17 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+
+    void setTimerValue(int value);
+
 private:
     Ui::MainWindow *ui;
+
+
+    StateMachine *stateMachine_;
+
+    void initStateMachine();
 };
 
 #endif // MAINWINDOW_H
