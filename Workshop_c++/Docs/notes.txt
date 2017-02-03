@@ -1,0 +1,41 @@
+
+Patters to research
+	Composition
+	Interface
+	Observer
+	Chain of responsibility
+	Visitor pattern
+
+Dependecy inversion by adding interface between client and server.
+Useful when you want to switch a HW driver with a stub, say on embedded device
+
+[Logic] -> [Interface] <- [HW driver]/[Stud]
+
+[Client]    
+[Interface] 
+[Server]    
+
+Questions:
+	How does an interface look in c++? Virtual functions
+	
+	
+Statement:
+	Inherite only from virtual functions
+	Dependecy injection in constructor, 
+	In constructor do as little work as possible
+	Stop wiring underneath, e.g. stop hiding dependecies
+	Global state is evil 
+	Do not use inheritance to do code reusability ?
+	
+Tips/things to do:
+	Reduce, reduce reduce.
+	Fixing bigClassSyndrom: take related variables and put inside smaller classes
+	use codeword "override" when implementing virtual functions
+	std::vector<*Type> search(){return {};} //Returns default return variable
+	Read about std::future, std::async, std::atomic, lock-free
+	LOG_DEBUG i atea er ikke thread safe?
+	
+
+	
+Factory pattern, do not do work in constructor
+
